@@ -31,6 +31,7 @@
         <module>vaadin-ui</module>
         <module>flex-ui</module>
         <module>rest-ui</module>
+        <module>app-acceptance</module>
     </modules>
 
     <properties>
