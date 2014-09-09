@@ -1,15 +1,5 @@
 Feature: Contact Maintenance
  
-Scenario: removing an address
-Given the contact "Jan Janssen"
-When I add the following addresses:
- | addressType | streetAndNumber | zipCode | city |
- | WORK | Church road 41 | 12314 | Oxford |
- | PRIVATE | Main street 1 | 13451 | London |
- | VACATION |Av. Tomas Cabreira Praia da Rocha |8500-802 | Portimão |
-And delete the "VACATION" address
-Then the contact has a "WORK" and "PRIVATE" address left
-
 Scenario: Creating a new contact
 Given an empty address book
 When I add a contact with the name "John Doe"
@@ -41,7 +31,17 @@ Then i can find the contact if i search for all contacts in "Cambridge"
 And i can find the contact if i search for all contacts in "Oxford"
 And i can find the contact if i search for all contacts in "Portimão" 
 
-Scenario: changing an address
+Scenario: Removing an address
+Given the contact "Jan Janssen"
+When I add the following addresses:
+ | addressType | streetAndNumber | zipCode | city |
+ | WORK | Church road 41 | 12314 | Oxford |
+ | PRIVATE | Main street 1 | 13451 | London |
+ | VACATION |Av. Tomas Cabreira Praia da Rocha |8500-802 | Portimão |
+And delete the "VACATION" address
+Then the contact has a "WORK" and "PRIVATE" address left
+
+Scenario: Changing an address
 Given the contact "Pieter Klaassen"
 When I add the following addresses:
  | addressType | streetAndNumber | zipCode | city |
